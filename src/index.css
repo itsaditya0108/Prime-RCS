@@ -2,6 +2,26 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer components {
+  .btn-brand {
+    @apply text-white font-semibold rounded-lg px-6 py-3 bg-gradient-to-r from-brandBlue to-brandGreen hover:opacity-90 transition;
+  }
+
+  .text-brand {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-brandBlue to-brandGreen;
+  }
+
+  .badge-brand {
+    @apply inline-flex items-center rounded-full px-4 py-1 text-sm font-semibold text-brandBlue bg-blue-100;
+  }
+}
+
+
 html {
   scroll-behavior: smooth;
+}
+
+body {
+  padding-top: 4rem;
+  /* matches navbar height (h-16) */
 }

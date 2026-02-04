@@ -4,6 +4,7 @@ import WhyRCS from "../sections/WhyRCS";
 import OtherServices from "../sections/OtherServices";
 import FAQ from "../sections/FAQ";
 import CTA from "../sections/CTA";
+import Features from "../sections/Features";
 
 export default function Home() {
     return (
@@ -11,6 +12,7 @@ export default function Home() {
             <Hero />
             <TrustedBy />
             <WhyRCS />
+            <Features />
             <OtherServices />
             <FAQ />
             <CTA />

@@ -12,13 +12,13 @@ export default function Hero() {
                     transition={{ duration: 0.6 }}
                     className="max-w-xl"
                 >
-                    <span className="inline-flex items-center mb-6 px-4 py-1 rounded-full text-xs font-semibold bg-blue-100 text-blue-600">
+                    <span className="badge-brand">
                         RCS Business Messaging
                     </span>
 
                     <h1 className="text-4xl md:text-5xl font-extrabold leading-tight tracking-tight mb-6">
                         Power Your Business with{" "}
-                        <span className="text-blue-600">Rich & Interactive</span>{" "}
+                        <span className="text-brand">Rich & Interactive </span>
                         Messaging
                     </h1>
 
