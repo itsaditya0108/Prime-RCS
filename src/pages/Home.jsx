@@ -13,9 +13,11 @@ export default function Home() {
             <TrustedBy />
             <WhyRCS />
             <Features />
+            {/* <UseCases />        // (optional, can merge with Features) */}
             <OtherServices />
             <FAQ />
             <CTA />
+
         </>
     );
 }

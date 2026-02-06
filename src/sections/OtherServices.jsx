@@ -1,54 +1,67 @@
+import { motion } from "framer-motion";
+
 const services = [
     {
-        title: "WhatsApp Business API",
-        desc: "Send notifications, alerts, and customer engagement messages using the official WhatsApp Business platform.",
+        title: "WhatsApp Business Messaging",
+        desc: "Reach customers on WhatsApp with rich, interactive, and automated conversations using official business APIs.",
     },
     {
-        title: "Bulk SMS Messaging",
-        desc: "Reliable transactional and promotional SMS delivery with enterprise-grade throughput.",
+        title: "SMS & OTP Services",
+        desc: "Reliable transactional and promotional SMS with fast delivery, high throughput, and global coverage.",
     },
     {
-        title: "OTP & Authentication",
-        desc: "Secure and fast OTP delivery for login verification and user authentication.",
+        title: "Email Messaging",
+        desc: "Engage users with personalized, automated email campaigns integrated into your communication stack.",
+    },
+    {
+        title: "Messaging APIs",
+        desc: "Developer-friendly APIs to unify RCS, WhatsApp, SMS, and email messaging under one platform.",
     },
 ];
 
 export default function OtherServices() {
     return (
-        <section className="py-24 bg-gray-50">
+        <section className="py-24 bg-white">
             <div className="max-w-7xl mx-auto px-6">
 
-                {/* Heading */}
-                <div className="max-w-3xl mb-16">
-                    <h2 className="text-3xl md:text-4xl font-bold mb-4">
-                        More Messaging Solutions
+                {/* Section Header */}
+                <motion.div
+                    initial={{ opacity: 0, y: 16 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.4, ease: "easeOut" }}
+                    className="max-w-2xl mb-16"
+                >
+                    <h2 className="text-3xl md:text-4xl font-extrabold tracking-tight mb-4">
+                        More Messaging Channels, One Platform
                     </h2>
-                    <p className="text-gray-600 text-lg">
-                        Along with RCS, SureMsg offers a complete suite of messaging
-                        solutions to support your business communication needs.
+                    <p className="text-gray-600 text-lg leading-relaxed">
+                        Beyond RCS, SureMsg supports multiple communication channels to help
+                        you reach customers wherever they are.
                     </p>
-                </div>
+                </motion.div>
 
-                {/* Service Cards */}
-                <div className="grid md:grid-cols-3 gap-10">
-                    {services.map((s, i) => (
-                        <div
-                            key={i}
-                            className="bg-white p-8 rounded-xl border border-gray-200 hover:border-blue-600 transition"
+                {/* Services Grid */}
+                <div className="grid md:grid-cols-2 gap-10">
+                    {services.map((service, index) => (
+                        <motion.div
+                            key={index}
+                            initial={{ opacity: 0, y: 12 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true }}
+                            transition={{ duration: 0.35, delay: index * 0.05 }}
+                            className="relative rounded-2xl border border-gray-200 p-6 hover:shadow-md transition"
                         >
-                            <h3 className="font-semibold text-lg mb-3">
-                                {s.title}
+                            {/* Gradient Accent */}
+                            <div className="absolute top-0 left-0 h-1 w-full rounded-t-2xl bg-gradient-to-r from-brandBlue to-brandGreen" />
+
+                            <h3 className="text-lg font-semibold mb-2">
+                                {service.title}
                             </h3>
-                            <p className="text-gray-600 leading-relaxed mb-6">
-                                {s.desc}
+                            <p className="text-gray-600 leading-relaxed">
+                                {service.desc}
                             </p>
-                            <a
-                                href="/services"
-                                className="text-blue-600 font-semibold text-sm hover:underline"
-                            >
-                                Learn more →
-                            </a>
-                        </div>
+                        </motion.div>
                     ))}
                 </div>
 

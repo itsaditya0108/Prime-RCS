@@ -1,34 +1,52 @@
-import { Link } from "react-router-dom";
+import { motion } from "framer-motion";
 
 export default function CTA() {
     return (
-        <section className="py-24 bg-gray-900 text-white">
-            <div className="max-w-4xl mx-auto px-6 text-center">
+        <section className="py-24 bg-gradient-to-br from-brandBlue to-brandGreen">
+            <div className="max-w-5xl mx-auto px-6 text-center text-white">
 
-                <h2 className="text-3xl md:text-4xl font-extrabold mb-6">
-                    Ready to modernize your business messaging?
-                </h2>
+                <motion.h2
+                    initial={{ opacity: 0, y: 12 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.4, ease: "easeOut" }}
+                    className="text-3xl md:text-4xl font-extrabold tracking-tight mb-6"
+                >
+                    Ready to Experience Modern Business Messaging?
+                </motion.h2>
 
-                <p className="text-gray-300 text-lg mb-10 leading-relaxed">
-                    Talk to our team to see how RCS and omnichannel messaging
-                    can help you engage customers more effectively.
-                </p>
+                <motion.p
+                    initial={{ opacity: 0, y: 12 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.4, delay: 0.1, ease: "easeOut" }}
+                    className="text-white/90 text-lg leading-relaxed mb-10"
+                >
+                    Get started with SureMsg and deliver rich, interactive, and verified
+                    RCS messages that engage customers and drive results.
+                </motion.p>
 
-                <div className="flex justify-center gap-4 flex-wrap">
-                    <Link
-                        to="/contact"
-                        className="bg-blue-600 px-8 py-3 rounded-lg font-semibold hover:bg-blue-700 transition"
+                <motion.div
+                    initial={{ opacity: 0, y: 12 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.4, delay: 0.2, ease: "easeOut" }}
+                    className="flex justify-center gap-4 flex-wrap"
+                >
+                    <a
+                        href="/contact"
+                        className="bg-white text-brandBlue px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 transition"
                     >
-                        Request Demo
-                    </Link>
+                        Request a Demo
+                    </a>
 
-                    <Link
-                        to="/services"
-                        className="border border-gray-600 px-8 py-3 rounded-lg font-semibold text-gray-300 hover:border-white hover:text-white transition"
+                    <a
+                        href="/services"
+                        className="border border-white/70 px-8 py-3 rounded-lg font-semibold text-white hover:bg-white/10 transition"
                     >
-                        Explore Services
-                    </Link>
-                </div>
+                        View Services
+                    </a>
+                </motion.div>
 
             </div>
         </section>

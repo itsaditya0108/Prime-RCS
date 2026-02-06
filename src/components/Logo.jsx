@@ -10,13 +10,13 @@ export default function Logo() {
             />
 
             <div className="leading-tight">
-                <div className="text-lg font-extrabold tracking-tight">
-                    <span className="text-blue-600">Sure</span>
-                    <span className="text-green-500">Msg</span>
+                <div className="text-xl font-extrabold tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-brandBlue to-brandGreen">
+                    SureMsg
                 </div>
                 <div className="text-xs text-gray-500">
-                    Trusted Messaging Platform
+                    Your Trusted Messaging Partner
                 </div>
+
             </div>
         </div>
     );

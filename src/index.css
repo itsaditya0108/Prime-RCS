@@ -20,8 +20,3 @@
 html {
   scroll-behavior: smooth;
 }
-
-body {
-  padding-top: 4rem;
-  /* matches navbar height (h-16) */
-}

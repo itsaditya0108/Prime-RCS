@@ -1,60 +1,72 @@
+import { motion } from "framer-motion";
+
 const features = [
     {
+        title: "Branded Sender Identity",
+        desc: "Display your business name, logo, and verified badge in every conversation to build trust and brand recognition.",
+    },
+    {
         title: "Rich Media Messaging",
-        desc: "Send images, videos, GIFs, and carousels directly inside the native messaging app."
+        desc: "Send images, videos, carousels, and rich cards to deliver engaging and interactive customer experiences.",
     },
     {
-        title: "Interactive Buttons",
-        desc: "Enable users to take action instantly with CTA buttons and quick replies."
+        title: "Actionable Buttons",
+        desc: "Drive instant actions with suggested replies and call-to-action buttons directly inside the message.",
     },
     {
-        title: "Verified Business Profile",
-        desc: "Build trust with verified sender IDs, brand name, and logo visibility."
+        title: "Two-Way Conversations",
+        desc: "Enable real-time, two-way messaging for support, sales, and customer engagement use cases.",
     },
     {
-        title: "Read & Delivery Insights",
-        desc: "Track delivery, read receipts, and engagement metrics in real time."
+        title: "Campaign Analytics",
+        desc: "Track delivery, reads, clicks, and user interactions with detailed campaign-level analytics.",
     },
     {
-        title: "Fallback to SMS",
-        desc: "Automatically deliver messages as SMS when RCS is not supported."
-    },
-    {
-        title: "Enterprise Scale",
-        desc: "Reliable delivery for high-volume campaigns with carrier-grade infrastructure."
+        title: "Seamless API Integration",
+        desc: "Integrate RCS messaging into your existing systems using secure, developer-friendly APIs.",
     },
 ];
 
 export default function Features() {
     return (
-        <section className="py-24 bg-white">
+        <section className="py-24 bg-gray-50">
             <div className="max-w-7xl mx-auto px-6">
 
-                {/* Heading */}
-                <div className="max-w-3xl mb-16">
-                    <h2 className="text-3xl md:text-4xl font-bold mb-4">
-                        Powerful RCS Messaging Features
+                {/* Section Header */}
+                <motion.div
+                    initial={{ opacity: 0, y: 16 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.4, ease: "easeOut" }}
+                    className="max-w-2xl mb-16"
+                >
+                    <h2 className="text-3xl md:text-4xl font-extrabold tracking-tight mb-4">
+                        Powerful Features Built for Modern Messaging
                     </h2>
-                    <p className="text-gray-600 text-lg">
-                        Everything you need to create engaging, interactive, and measurable
-                        messaging experiences for your customers.
+                    <p className="text-gray-600 text-lg leading-relaxed">
+                        SureMsg provides everything businesses need to deliver rich,
+                        interactive, and scalable RCS messaging experiences.
                     </p>
-                </div>
+                </motion.div>
 
-                {/* Feature Grid */}
-                <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-10">
-                    {features.map((f, i) => (
-                        <div
-                            key={i}
-                            className="p-6 rounded-xl border border-gray-200 hover:border-blue-600 transition"
+                {/* Features Grid */}
+                <div className="grid md:grid-cols-2 gap-10">
+                    {features.map((feature, index) => (
+                        <motion.div
+                            key={index}
+                            initial={{ opacity: 0, y: 12 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true }}
+                            transition={{ duration: 0.35, delay: index * 0.05 }}
+                            className="rounded-2xl bg-white border border-gray-200 p-6 hover:shadow-md transition"
                         >
-                            <h3 className="font-semibold text-lg mb-2">
-                                {f.title}
+                            <h3 className="text-lg font-semibold mb-2">
+                                {feature.title}
                             </h3>
                             <p className="text-gray-600 leading-relaxed">
-                                {f.desc}
+                                {feature.desc}
                             </p>
-                        </div>
+                        </motion.div>
                     ))}
                 </div>
 

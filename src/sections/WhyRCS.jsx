@@ -1,78 +1,71 @@
-const features = [
+import { motion } from "framer-motion";
+
+const reasons = [
     {
-        title: "Branded Sender",
-        rcs: "Business name & logo visible",
-        sms: "Unknown phone number",
+        title: "Verified Business Messaging",
+        desc: "RCS messages are sent from verified business profiles, building instant trust and reducing fraud compared to traditional SMS.",
     },
     {
-        title: "Rich Media",
-        rcs: "Images, carousels & videos",
-        sms: "Text only",
+        title: "Rich & Interactive Content",
+        desc: "Go beyond plain text with images, carousels, buttons, and suggested replies directly inside the messaging app.",
     },
     {
-        title: "Call-to-Action",
-        rcs: "Buttons & quick replies",
-        sms: "Links only",
+        title: "Higher Customer Engagement",
+        desc: "Interactive messages drive significantly higher open rates, CTRs, and conversions than standard SMS campaigns.",
     },
     {
-        title: "Engagement Tracking",
-        rcs: "Delivered & read receipts",
-        sms: "Delivery status only",
+        title: "Real-Time Conversations",
+        desc: "Enable two-way messaging with read receipts, typing indicators, and instant responses — just like modern chat apps.",
     },
 ];
 
 export default function WhyRCS() {
     return (
-        <section className="py-24 bg-gray-50">
+        <section className="py-24 bg-white">
             <div className="max-w-7xl mx-auto px-6">
 
-                {/* Heading */}
-                <div className="max-w-3xl mb-16">
-                    <h2 className="text-3xl md:text-4xl font-bold mb-4">
-                        Why RCS Business Messaging?
+                {/* Section Header */}
+                <motion.div
+                    initial={{ opacity: 0, y: 16 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.4, ease: "easeOut" }}
+                    className="max-w-2xl mb-16"
+                >
+                    <span className="badge-brand mb-4">
+                        Why RCS Messaging
+                    </span>
+
+                    <h2 className="text-3xl md:text-4xl font-extrabold tracking-tight mb-4">
+                        A Better Alternative to Traditional SMS
                     </h2>
-                    <p className="text-gray-600 text-lg">
-                        RCS is the next evolution of SMS, offering rich, interactive,
-                        and branded messaging experiences that drive higher engagement.
+
+                    <p className="text-gray-600 text-lg leading-relaxed">
+                        Rich Communication Services (RCS) brings app-like experiences directly
+                        into the native messaging app — without requiring customers to install
+                        anything.
                     </p>
-                </div>
+                </motion.div>
 
-                {/* Comparison Table */}
-                <div className="overflow-x-auto">
-                    <div className="min-w-[700px] bg-white rounded-xl shadow-sm">
-
-                        {/* Header */}
-                        <div className="grid grid-cols-3 border-b">
-                            <div className="p-6 font-semibold text-gray-600">
-                                Feature
-                            </div>
-                            <div className="p-6 font-semibold text-blue-600">
-                                RCS Messaging
-                            </div>
-                            <div className="p-6 font-semibold text-gray-500">
-                                Traditional SMS
-                            </div>
-                        </div>
-
-                        {/* Rows */}
-                        {features.map((f, i) => (
-                            <div
-                                key={i}
-                                className="grid grid-cols-3 border-b last:border-b-0"
-                            >
-                                <div className="p-6 font-medium text-gray-700">
-                                    {f.title}
-                                </div>
-                                <div className="p-6 text-gray-700">
-                                    {f.rcs}
-                                </div>
-                                <div className="p-6 text-gray-500">
-                                    {f.sms}
-                                </div>
-                            </div>
-                        ))}
-
-                    </div>
+                {/* Reasons Grid */}
+                <div className="grid md:grid-cols-2 gap-10">
+                    {reasons.map((item, index) => (
+                        <motion.div
+                            key={index}
+                            initial={{ opacity: 0, y: 12 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true }}
+                            transition={{ duration: 0.35, delay: index * 0.05 }}
+                            className="rounded-2xl border border-gray-200 p-6 hover:border-brandBlue transition"
+                        >
+                            <h3 className="text-lg font-semibold mb-2">
+                                {item.title}
+                            </h3>
+                            <p className="text-gray-600 leading-relaxed">
+                                {item.desc}
+                            </p>
+                        </motion.div>
+                    ))}
                 </div>
 
             </div>
