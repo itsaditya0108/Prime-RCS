@@ -1,45 +1,49 @@
 import { motion } from "framer-motion";
 
+// Placeholder logos - in production these would be SVGs
+const logos = Array(10).fill(null).map((_, i) => ({
+    id: i,
+    name: `Company ${i + 1}`,
+}));
+
 export default function TrustedBy() {
     return (
-        <section className="py-20 bg-white border-t border-gray-100">
-            <div className="max-w-7xl mx-auto px-6">
+        <section className="py-12 bg-white border-b border-slate-100 overflow-hidden">
+            <div className="max-w-7xl mx-auto px-6 mb-8 text-center">
+                <p className="text-sm font-semibold text-slate-500 uppercase tracking-wider">
+                    Trusted by forward-thinking companies
+                </p>
+            </div>
 
-                {/* Label */}
-                <motion.p
-                    initial={{ opacity: 0, y: 10 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.4, ease: "easeOut" }}
-                    className="text-center text-sm font-medium tracking-wide text-gray-500 mb-10"
-                >
-                    Trusted by growing businesses & enterprises
-                </motion.p>
+            <div className="relative flex overflow-hidden group">
+                {/* Gradient Masks */}
+                <div className="absolute left-0 top-0 bottom-0 w-32 bg-gradient-to-r from-white to-transparent z-10 pointer-events-none" />
+                <div className="absolute right-0 top-0 bottom-0 w-32 bg-gradient-to-l from-white to-transparent z-10 pointer-events-none" />
 
-                {/* Logos */}
                 <motion.div
-                    initial={{ opacity: 0 }}
-                    whileInView={{ opacity: 1 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.5, delay: 0.1 }}
-                    className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-10 items-center justify-items-center"
+                    className="flex gap-16 items-center flex-nowrap"
+                    animate={{ x: "-50%" }}
+                    transition={{
+                        duration: 30,
+                        repeat: Infinity,
+                        ease: "linear",
+                        repeatType: "loop"
+                    }}
                 >
-                    <LogoPlaceholder />
-                    <LogoPlaceholder />
-                    <LogoPlaceholder />
-                    <LogoPlaceholder />
-                    <LogoPlaceholder />
+                    {/* Double the logos to create seamless loop */}
+                    {[...logos, ...logos].map((logo, index) => (
+                        <div
+                            key={`${logo.id}-${index}`}
+                            className="flex items-center justify-center min-w-[120px] opacity-40 hover:opacity-100 transition-opacity duration-300 grayscale hover:grayscale-0 cursor-pointer"
+                        >
+                            <span className="text-xl font-bold font-display text-slate-800 flex items-center gap-2">
+                                <div className="w-6 h-6 rounded bg-slate-800" />
+                                LOGO
+                            </span>
+                        </div>
+                    ))}
                 </motion.div>
-
             </div>
         </section>
-    );
-}
-
-function LogoPlaceholder() {
-    return (
-        <div className="h-10 flex items-center justify-center opacity-60 grayscale">
-            <div className="h-6 w-28 bg-gray-200 rounded" />
-        </div>
     );
 }

@@ -2,67 +2,100 @@ import { motion } from "framer-motion";
 
 const services = [
     {
-        title: "WhatsApp Business Messaging",
-        desc: "Reach customers on WhatsApp with rich, interactive, and automated conversations using official business APIs.",
+        title: "WhatsApp Business",
+        desc: "Reach 2B+ users on their favorite app. Automate support, send notifications, and drive sales with the official API.",
+        icon: (
+            <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.711 2.598 2.654-.698c.93.513 1.933.783 2.8.783l.005-.001c3.181 0 5.767-2.586 5.767-5.766.001-3.18-2.585-5.766-5.766-5.77zM17.598 2.43c-3.26-3.26-8.543-3.258-11.802.001C4.159 4.066 3.288 6.225 3.288 8.441c0 1.096.223 2.147.66 3.102L2.43 18.572l7.155-1.875c.91.493 1.928.749 2.955.749h.005c4.615 0 8.358-3.744 8.358-8.36 0-2.232-.87-4.327-2.448-5.903z" /></svg>
+        ),
+        color: "bg-[#25D366]"
     },
     {
-        title: "SMS & OTP Services",
-        desc: "Reliable transactional and promotional SMS with fast delivery, high throughput, and global coverage.",
+        title: "Enterprise SMS",
+        desc: "The most reliable failover channel. Ensure delivery for OTPs, alerts, and critical notifications worldwide.",
+        icon: (
+            <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z" /></svg>
+        ),
+        color: "bg-blue-500"
     },
     {
-        title: "Email Messaging",
-        desc: "Engage users with personalized, automated email campaigns integrated into your communication stack.",
+        title: "Email Marketing",
+        desc: "Design beautiful email campaigns that land in the inbox, not the spam folder. Integrated analytics included.",
+        icon: (
+            <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" /></svg>
+        ),
+        color: "bg-orange-500"
     },
     {
-        title: "Messaging APIs",
-        desc: "Developer-friendly APIs to unify RCS, WhatsApp, SMS, and email messaging under one platform.",
+        title: "Unified API",
+        desc: "One API for all channels. Switch between RCS, WhatsApp, and SMS intelligently based on user connectivity.",
+        icon: (
+            <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" /></svg>
+        ),
+        color: "bg-purple-600"
     },
 ];
 
 export default function OtherServices() {
     return (
-        <section className="py-24 bg-white">
+        <section className="py-24 bg-slate-50 border-t border-slate-100">
             <div className="max-w-7xl mx-auto px-6">
 
-                {/* Section Header */}
-                <motion.div
-                    initial={{ opacity: 0, y: 16 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.4, ease: "easeOut" }}
-                    className="max-w-2xl mb-16"
-                >
-                    <h2 className="text-3xl md:text-4xl font-extrabold tracking-tight mb-4">
-                        More Messaging Channels, One Platform
-                    </h2>
-                    <p className="text-gray-600 text-lg leading-relaxed">
-                        Beyond RCS, SureMsg supports multiple communication channels to help
-                        you reach customers wherever they are.
-                    </p>
-                </motion.div>
+                <div className="grid lg:grid-cols-12 gap-12 items-start">
 
-                {/* Services Grid */}
-                <div className="grid md:grid-cols-2 gap-10">
-                    {services.map((service, index) => (
-                        <motion.div
-                            key={index}
-                            initial={{ opacity: 0, y: 12 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true }}
-                            transition={{ duration: 0.35, delay: index * 0.05 }}
-                            className="relative rounded-2xl border border-gray-200 p-6 hover:shadow-md transition"
-                        >
-                            {/* Gradient Accent */}
-                            <div className="absolute top-0 left-0 h-1 w-full rounded-t-2xl bg-gradient-to-r from-brandBlue to-brandGreen" />
+                    {/* Header */}
+                    <motion.div
+                        initial={{ opacity: 0, x: -20 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        viewport={{ once: true }}
+                        className="lg:col-span-4 lg:sticky lg:top-32"
+                    >
+                        <span className="text-brandBlue font-bold tracking-wider uppercase text-xs mb-3 block">
+                            Omnichannel Platform
+                        </span>
+                        <h2 className="text-3xl md:text-4xl font-display font-bold text-slate-900 mb-6">
+                            Beyond RCS: <br />
+                            <span className="text-slate-400">Complete Connectivity.</span>
+                        </h2>
+                        <p className="text-slate-600 text-lg leading-relaxed mb-8">
+                            Don't limit your reach. SureMsg unifies every major communication channel into a single, intelligent platform.
+                        </p>
+                        <a href="/services" className="text-brandBlue font-semibold hover:text-brandBlue/80 inline-flex items-center gap-2 group">
+                            Explore all channels
+                            <svg className="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
+                        </a>
+                    </motion.div>
 
-                            <h3 className="text-lg font-semibold mb-2">
-                                {service.title}
-                            </h3>
-                            <p className="text-gray-600 leading-relaxed">
-                                {service.desc}
-                            </p>
-                        </motion.div>
-                    ))}
+                    {/* Grid */}
+                    <div className="lg:col-span-8 grid md:grid-cols-2 gap-6">
+                        {services.map((service, index) => (
+                            <motion.div
+                                key={index}
+                                initial={{ opacity: 0, y: 20 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                viewport={{ once: true }}
+                                transition={{ duration: 0.4, delay: index * 0.1 }}
+                                className="group bg-white rounded-2xl p-8 border border-slate-100 hover:border-brandBlue/30 hover:shadow-xl hover:shadow-brandBlue/5 transition-all duration-300 relative overflow-hidden"
+                            >
+                                <div className={`absolute top-0 right-0 w-24 h-24 ${service.color} opacity-5 rounded-bl-[100px] group-hover:scale-150 transition-transform duration-500`} />
+
+                                <div className={`w-12 h-12 rounded-xl ${service.color} bg-opacity-10 flex items-center justify-center text-white mb-6 group-hover:scale-110 transition-transform duration-300 relative z-10`}>
+                                    {/* Hack to use the text color corresponding to the bg color class */}
+                                    <div className={`absolute inset-0 opacity-20 `} />
+                                    <span className={`${service.color.replace('bg-', 'text-')} opacity-100 brightness-75`}>
+                                        {service.icon}
+                                    </span>
+                                </div>
+
+                                <h3 className="text-xl font-bold text-slate-900 mb-3 group-hover:text-brandBlue transition-colors">
+                                    {service.title}
+                                </h3>
+                                <p className="text-slate-500 leading-relaxed">
+                                    {service.desc}
+                                </p>
+                            </motion.div>
+                        ))}
+                    </div>
+
                 </div>
 
             </div>

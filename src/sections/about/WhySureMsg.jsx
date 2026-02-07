@@ -1,25 +1,41 @@
-const trust = [
-    "Built with industry-standard security practices",
-    "Designed for high-volume enterprise messaging",
-    "Focused on reliability, compliance, and performance",
-    "Dedicated support for business messaging needs",
+import { motion } from "framer-motion";
+
+const stats = [
+    { label: "Messages Sent", value: "2B+" },
+    { label: "Enterprise Clients", value: "500+" },
+    { label: "Uptime Guaranteed", value: "99.99%" },
+    { label: "Global Reach", value: "190+" }
 ];
 
 export default function TrustPoints() {
     return (
-        <section className="py-24 bg-gray-50">
-            <div className="max-w-7xl mx-auto px-6 max-w-3xl">
+        <section className="py-20 bg-brandBlue text-white relative overflow-hidden">
 
-                <h2 className="text-3xl font-extrabold mb-6">
-                    Built for Trust & Reliability
-                </h2>
+            {/* Background Patterns */}
+            <div className="absolute top-0 left-0 w-full h-full opacity-10">
+                <div className="absolute right-0 top-0 w-64 h-64 bg-white rounded-full blur-[100px] translate-x-1/2 -translate-y-1/2" />
+                <div className="absolute left-0 bottom-0 w-64 h-64 bg-white rounded-full blur-[100px] -translate-x-1/2 translate-y-1/2" />
+            </div>
 
-                <ul className="space-y-3 text-gray-700">
-                    {trust.map((t, i) => (
-                        <li key={i}>• {t}</li>
+            <div className="max-w-7xl mx-auto px-6 relative z-10">
+                <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center divide-x-0 md:divide-x divide-white/20">
+                    {stats.map((stat, i) => (
+                        <motion.div
+                            key={i}
+                            initial={{ opacity: 0, y: 20 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true }}
+                            transition={{ delay: i * 0.1 }}
+                        >
+                            <div className="text-4xl md:text-5xl font-display font-bold mb-2">
+                                {stat.value}
+                            </div>
+                            <div className="text-brandBlue-100 font-medium text-sm tracking-wider uppercase">
+                                {stat.label}
+                            </div>
+                        </motion.div>
                     ))}
-                </ul>
-
+                </div>
             </div>
         </section>
     );

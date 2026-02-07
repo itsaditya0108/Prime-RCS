@@ -25,79 +25,66 @@ const faqs = [
 ];
 
 export default function FAQ() {
-    const [active, setActive] = useState(null);
+    const [active, setActive] = useState(0);
 
     return (
-        <section className="py-24 bg-gray-50">
-            <div className="max-w-4xl mx-auto px-6">
+        <section className="py-24 bg-white relative overflow-hidden">
 
-                {/* Header */}
-                <div className={`mb-16 "text-center mx-auto" max-w-3xl`}>
-                    <h2 className="text-3xl md:text-4xl font-extrabold tracking-tight mb-4">
+            {/* Background */}
+            <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-brandBlue/5 rounded-full blur-[120px] pointer-events-none -translate-y-1/2 translate-x-1/2" />
+
+            <div className="max-w-4xl mx-auto px-6 relative z-10">
+
+                <div className="text-center mb-16">
+                    <span className="inline-block py-1 px-3 rounded-full bg-slate-100 text-slate-600 text-xs font-bold tracking-wide uppercase mb-4">
+                        Got Questions?
+                    </span>
+                    <h2 className="text-4xl font-display font-bold text-slate-900 mb-4">
                         Frequently Asked Questions
                     </h2>
-                    <p className="text-gray-600 text-lg">
-                        Everything you need to know about RCS and SureMsg.
+                    <p className="text-slate-500 text-lg">
+                        Everything you need to know about modernizing your business messaging.
                     </p>
                 </div>
 
-
-                {/* FAQ Items */}
-                <div className="space-y-5">
+                <div className="space-y-4">
                     {faqs.map((item, index) => {
                         const isOpen = active === index;
 
                         return (
-                            <div
+                            <motion.div
                                 key={index}
-                                className={`relative rounded-2xl bg-white border transition-all
-                  ${isOpen
-                                        ? "border-transparent shadow-lg"
-                                        : "border-gray-200 hover:border-brandBlue/40"
-                                    }`}
+                                initial={false}
+                                animate={{ backgroundColor: isOpen ? "rgba(241, 245, 249, 0.5)" : "rgba(255, 255, 255, 0)" }}
+                                className={`rounded-2xl border transition-all duration-300 overflow-hidden ${isOpen ? "border-brandBlue/20 ring-4 ring-brandBlue/5 shadow-sm" : "border-slate-100 hover:border-slate-200"}`}
                             >
-                                {/* Gradient Accent */}
-                                <div
-                                    className={`absolute left-0 top-0 h-full w-1 rounded-l-2xl bg-gradient-to-b from-brandBlue to-brandGreen transition-opacity
-                    ${isOpen ? "opacity-100" : "opacity-40"}
-                  `}
-                                />
-
-                                {/* Question */}
                                 <button
                                     onClick={() => setActive(isOpen ? null : index)}
-                                    className="w-full flex items-center justify-between gap-4 px-6 py-5 text-left"
+                                    className="w-full flex items-center justify-between gap-6 px-8 py-6 text-left"
                                 >
-                                    <span className="font-semibold text-gray-900">
+                                    <span className={`font-bold text-lg transition-colors ${isOpen ? "text-slate-900" : "text-slate-700"}`}>
                                         {item.q}
                                     </span>
-
-                                    <span
-                                        className={`text-xl transition-transform
-                      ${isOpen ? "rotate-45 text-brandBlue" : "text-gray-400"}
-                    `}
-                                    >
-                                        +
+                                    <span className={`flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center border transition-all duration-300 ${isOpen ? "bg-brandBlue text-white border-transparent rotate-45" : "bg-white text-slate-400 border-slate-200"}`}>
+                                        <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4v16m8-8H4" /></svg>
                                     </span>
                                 </button>
 
-                                {/* Answer */}
-                                <AnimatePresence>
+                                <AnimatePresence initial={false}>
                                     {isOpen && (
                                         <motion.div
                                             initial={{ height: 0, opacity: 0 }}
                                             animate={{ height: "auto", opacity: 1 }}
                                             exit={{ height: 0, opacity: 0 }}
-                                            transition={{ duration: 0.25, ease: "easeOut" }}
-                                            className="overflow-hidden"
+                                            transition={{ duration: 0.3, ease: "easeInOut" }}
                                         >
-                                            <div className="px-6 pb-6 text-gray-600 leading-relaxed">
+                                            <div className="px-8 pb-8 pt-0 text-slate-600 leading-relaxed">
                                                 {item.a}
                                             </div>
                                         </motion.div>
                                     )}
                                 </AnimatePresence>
-                            </div>
+                            </motion.div>
                         );
                     })}
                 </div>
