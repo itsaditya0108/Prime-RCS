@@ -13,7 +13,7 @@ export default function Logo() {
             </div>
 
             <div className="leading-none">
-                <div className="text-2xl font-extrabold tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-brandBlue to-brandGreen via-brandBlue bg-[length:200%_auto] animate-gradient">
+                <div className="text-lg md:text-2xl font-extrabold tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-brandBlue to-brandGreen via-brandBlue bg-[length:200%_auto] animate-gradient">
                     SureMsg
                 </div>
             </div>

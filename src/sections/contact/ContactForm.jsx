@@ -1,6 +1,38 @@
+import { useState } from "react";
 import { motion } from "framer-motion";
+import { sendEmail } from "../../utils/emailService";
 
 export default function ContactForm() {
+    const [formData, setFormData] = useState({
+        name: "",
+        email: "",
+        company: "",
+        service: "",
+        message: ""
+    });
+    const [status, setStatus] = useState("idle"); // idle, sending, success, error
+
+    const handleChange = (e) => {
+        setFormData({ ...formData, [e.target.name]: e.target.value });
+    };
+
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        setStatus("sending");
+
+        try {
+            const result = await sendEmail(formData);
+            if (result.success) {
+                setStatus("success");
+                setFormData({ name: "", email: "", company: "", service: "", message: "" });
+            } else {
+                setStatus("error");
+            }
+        } catch (error) {
+            setStatus("error");
+        }
+    };
+
     return (
         <section className="pb-28 bg-slate-50">
             <div className="max-w-7xl mx-auto px-6">
@@ -27,7 +59,7 @@ export default function ContactForm() {
                                 </div>
                                 <div>
                                     <h3 className="font-bold text-slate-900 mb-1">Chat to Sales</h3>
-                                    <p className="text-slate-600">sales@suremsg.com</p>
+                                    <p className="text-slate-600">info@suremsg.in</p>
                                 </div>
                             </div>
 
@@ -37,7 +69,7 @@ export default function ContactForm() {
                                 </div>
                                 <div>
                                     <h3 className="font-bold text-slate-900 mb-1">Developer Support</h3>
-                                    <p className="text-slate-600">dev@suremsg.com</p>
+                                    <p className="text-slate-600">info@suremsg.in</p>
                                 </div>
                             </div>
 
@@ -47,7 +79,8 @@ export default function ContactForm() {
                                 </div>
                                 <div>
                                     <h3 className="font-bold text-slate-900 mb-1">Visit Us</h3>
-                                    <p className="text-slate-600">123 Messaging Lane, Tech City, USA</p>
+                                    <p className="text-slate-600">Office No 19 Ground Floor, Evershine Mall Chincholi Bunder, Road, near Mindspace, Malad West, Mumbai, Maharashtra 400064.</p>
+
                                 </div>
                             </div>
                         </div>
@@ -62,31 +95,94 @@ export default function ContactForm() {
                     >
                         <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-brandBlue to-brandGreen" />
 
-                        <form className="space-y-6 relative z-10">
+                        <form onSubmit={handleSubmit} className="space-y-6 relative z-10">
                             <div className="grid md:grid-cols-2 gap-6">
                                 <div>
                                     <label className="block text-sm font-semibold text-slate-700 mb-2">Full Name</label>
-                                    <input type="text" className="w-full rounded-xl border-slate-200 bg-slate-50 px-4 py-3 focus:ring-2 focus:ring-brandBlue/20 focus:border-brandBlue focus:bg-white transition-all outline-none" placeholder="John Doe" required />
+                                    <input
+                                        type="text"
+                                        name="name"
+                                        value={formData.name}
+                                        onChange={handleChange}
+                                        className="w-full rounded-xl border-slate-200 bg-slate-50 px-4 py-3 focus:ring-2 focus:ring-brandBlue/20 focus:border-brandBlue focus:bg-white transition-all outline-none"
+                                        placeholder="John Doe"
+                                        required
+                                    />
                                 </div>
                                 <div>
                                     <label className="block text-sm font-semibold text-slate-700 mb-2">Work Email</label>
-                                    <input type="email" className="w-full rounded-xl border-slate-200 bg-slate-50 px-4 py-3 focus:ring-2 focus:ring-brandBlue/20 focus:border-brandBlue focus:bg-white transition-all outline-none" placeholder="john@company.com" required />
+                                    <input
+                                        type="email"
+                                        name="email"
+                                        value={formData.email}
+                                        onChange={handleChange}
+                                        className="w-full rounded-xl border-slate-200 bg-slate-50 px-4 py-3 focus:ring-2 focus:ring-brandBlue/20 focus:border-brandBlue focus:bg-white transition-all outline-none"
+                                        placeholder="john@company.com"
+                                        required
+                                    />
                                 </div>
                             </div>
 
                             <div>
                                 <label className="block text-sm font-semibold text-slate-700 mb-2">Company Name</label>
-                                <input type="text" className="w-full rounded-xl border-slate-200 bg-slate-50 px-4 py-3 focus:ring-2 focus:ring-brandBlue/20 focus:border-brandBlue focus:bg-white transition-all outline-none" placeholder="Acme Inc." />
+                                <input
+                                    type="text"
+                                    name="company"
+                                    value={formData.company}
+                                    onChange={handleChange}
+                                    className="w-full rounded-xl border-slate-200 bg-slate-50 px-4 py-3 focus:ring-2 focus:ring-brandBlue/20 focus:border-brandBlue focus:bg-white transition-all outline-none"
+                                    placeholder="Acme Inc."
+                                />
+                            </div>
+
+                            <div>
+                                <label className="block text-sm font-semibold text-slate-700 mb-2">Service of Interest</label>
+                                <div className="relative">
+                                    <select
+                                        name="service"
+                                        value={formData.service}
+                                        onChange={handleChange}
+                                        className="w-full rounded-xl border-slate-200 bg-slate-50 px-4 py-3 focus:ring-2 focus:ring-brandBlue/20 focus:border-brandBlue focus:bg-white transition-all outline-none appearance-none text-slate-600"
+                                    >
+                                        <option value="" disabled>Select a service...</option>
+                                        <option value="rcs">RCS Business Messaging</option>
+                                        <option value="whatsapp">WhatsApp Business API</option>
+                                        <option value="sms">Enterprise SMS</option>
+                                        <option value="other">Other / General Inquiry</option>
+                                    </select>
+                                    <svg className="w-5 h-5 text-slate-400 absolute right-4 top-1/2 -translate-y-1/2 pointer-events-none" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" /></svg>
+                                </div>
                             </div>
 
                             <div>
                                 <label className="block text-sm font-semibold text-slate-700 mb-2">Message</label>
-                                <textarea rows="4" className="w-full rounded-xl border-slate-200 bg-slate-50 px-4 py-3 focus:ring-2 focus:ring-brandBlue/20 focus:border-brandBlue focus:bg-white transition-all outline-none resize-none" placeholder="Tell us about your project..." />
+                                <textarea
+                                    rows="4"
+                                    name="message"
+                                    value={formData.message}
+                                    onChange={handleChange}
+                                    className="w-full rounded-xl border-slate-200 bg-slate-50 px-4 py-3 focus:ring-2 focus:ring-brandBlue/20 focus:border-brandBlue focus:bg-white transition-all outline-none resize-none"
+                                    placeholder="Tell us about your project..."
+                                />
                             </div>
 
-                            <button type="submit" className="w-full py-4 rounded-xl font-bold text-white bg-gradient-to-r from-brandBlue to-brandGreen hover:opacity-90 transition-opacity shadow-lg shadow-brandBlue/20">
-                                Send Message
+                            <button
+                                type="submit"
+                                disabled={status === "sending" || status === "success"}
+                                className="w-full py-4 rounded-xl font-bold text-white bg-gradient-to-r from-brandBlue to-brandGreen hover:opacity-90 transition-opacity shadow-lg shadow-brandBlue/20 disabled:opacity-70 disabled:cursor-not-allowed"
+                            >
+                                {status === "sending" ? "Sending..." : status === "success" ? "Message Sent!" : "Send Message"}
                             </button>
+                            {status === "success" && (
+                                <p className="text-green-600 text-center text-sm font-medium mt-2">
+                                    Thanks! We'll be in touch shortly.
+                                </p>
+                            )}
+                            {status === "error" && (
+                                <p className="text-red-500 text-center text-sm font-medium mt-2">
+                                    Something went wrong. Please try again.
+                                </p>
+                            )}
                         </form>
                     </motion.div>
 

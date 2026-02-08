@@ -1,4 +1,5 @@
 import Hero from "../sections/Hero";
+import PageTransition from "../components/PageTransition";
 import TrustedBy from "../sections/TrustedBy";
 import WhyRCS from "../sections/WhyRCS";
 import OtherServices from "../sections/OtherServices";
@@ -8,7 +9,7 @@ import Features from "../sections/Features";
 
 export default function Home() {
     return (
-        <>
+        <PageTransition>
             <Hero />
             <TrustedBy />
             <WhyRCS />
@@ -17,7 +18,6 @@ export default function Home() {
             <OtherServices />
             <FAQ />
             <CTA />
-
-        </>
+        </PageTransition>
     );
 }

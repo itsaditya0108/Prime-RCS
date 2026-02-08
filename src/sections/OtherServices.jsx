@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 
 const services = [
     {
@@ -17,14 +18,7 @@ const services = [
         ),
         color: "bg-blue-500"
     },
-    {
-        title: "Email Marketing",
-        desc: "Design beautiful email campaigns that land in the inbox, not the spam folder. Integrated analytics included.",
-        icon: (
-            <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" /></svg>
-        ),
-        color: "bg-orange-500"
-    },
+
     {
         title: "Unified API",
         desc: "One API for all channels. Switch between RCS, WhatsApp, and SMS intelligently based on user connectivity.",
@@ -59,10 +53,10 @@ export default function OtherServices() {
                         <p className="text-slate-600 text-lg leading-relaxed mb-8">
                             Don't limit your reach. SureMsg unifies every major communication channel into a single, intelligent platform.
                         </p>
-                        <a href="/services" className="text-brandBlue font-semibold hover:text-brandBlue/80 inline-flex items-center gap-2 group">
+                        <Link to="/services" className="text-brandBlue font-semibold hover:text-brandBlue/80 inline-flex items-center gap-2 group">
                             Explore all channels
                             <svg className="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
-                        </a>
+                        </Link>
                     </motion.div>
 
                     {/* Grid */}

@@ -14,6 +14,7 @@ export default function ServicesHero() {
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.6 }}
+                    className="relative"
                 >
                     <span className="inline-block py-1 px-3 rounded-full bg-brandBlue/10 text-brandBlue text-xs font-bold tracking-wide uppercase mb-6">
                         Enterprise Solutions
