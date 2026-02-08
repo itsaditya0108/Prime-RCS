@@ -11,7 +11,7 @@ export default function Home() {
     return (
         <PageTransition>
             <Hero />
-            <TrustedBy />
+            {/* <TrustedBy /> */}
             <WhyRCS />
             <Features />
             {/* <UseCases />        // (optional, can merge with Features) */}
