@@ -3,24 +3,24 @@ import { motion, AnimatePresence } from "framer-motion";
 
 const faqs = [
     {
-        q: "What is RCS messaging?",
-        a: "RCS (Rich Communication Services) is an advanced messaging protocol that allows businesses to send rich, interactive messages with images, buttons, and verified branding directly to users’ default messaging apps.",
+        q: "What is PrimeRCS?",
+        a: "PrimeRCS is an enterprise-grade Rich Communication Services platform that enables businesses to send verified, branded, and interactive mobile messages with 80% higher engagement than SMS.",
     },
     {
-        q: "How is RCS different from SMS?",
-        a: "Unlike SMS, RCS supports rich media, read receipts, suggested replies, and verified sender profiles—making messages more engaging and trustworthy.",
+        q: "How does it improve trust?",
+        a: "Every message sent via PrimeRCS features your official brand logo, name, and a verified checkmark, instantly assuring customers of the sender's authenticity.",
     },
     {
-        q: "Do users need to install any app to receive RCS messages?",
-        a: "No. RCS messages are delivered directly to the user’s default messaging app on supported Android devices.",
+        q: "Do I need a special app?",
+        a: "No. RCS messages are delivered natively to the default messaging app on supported Android and iOS devices, requiring no additional downloads from your customers.",
     },
     {
-        q: "Is RCS messaging secure?",
-        a: "Yes. RCS uses secure delivery channels and verified business profiles, reducing the risk of spam and fraud compared to traditional SMS.",
+        q: "Is it secure for business?",
+        a: "Yes. PrimeRCS utilizes industrial-strength encryption and secure delivery channels, significantly reducing the risks of phishing and fraud associated with legacy SMS.",
     },
     {
-        q: "Can RCS be integrated with existing systems?",
-        a: "Absolutely. SureMsg provides developer-friendly APIs that integrate seamlessly with CRMs, marketing platforms, and backend systems.",
+        q: "Can I integrate with my CRM?",
+        a: "Absolutely. PrimeRCS offers robust, modern APIs and webhooks that integrate seamlessly with your existing tech stack, including CRMs and marketing automation tools.",
     },
 ];
 
@@ -28,26 +28,26 @@ export default function FAQ() {
     const [active, setActive] = useState(0);
 
     return (
-        <section className="py-24 bg-white relative overflow-hidden">
+        <section className="py-20 lg:py-32 bg-navy-900 relative overflow-hidden">
 
-            {/* Background */}
-            <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-brandBlue/5 rounded-full blur-[120px] pointer-events-none -translate-y-1/2 translate-x-1/2" />
+            {/* Background Glow */}
+            <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-rcs-blue/5 rounded-full blur-[140px] pointer-events-none -translate-y-1/2 translate-x-1/2" />
 
             <div className="max-w-4xl mx-auto px-6 relative z-10">
 
-                <div className="text-center mb-16">
-                    <span className="inline-block py-1 px-3 rounded-full bg-slate-100 text-slate-600 text-xs font-bold tracking-wide uppercase mb-4">
-                        Got Questions?
+                <div className="text-center mb-16 lg:mb-20">
+                    <span className="inline-block py-2 px-4 rounded-full bg-white/5 border border-white/10 text-rcs-cyan text-[10px] sm:text-xs font-black tracking-[0.25em] uppercase mb-6">
+                        Expert Knowledge
                     </span>
-                    <h2 className="text-4xl font-display font-bold text-slate-900 mb-4">
-                        Frequently Asked Questions
+                    <h2 className="text-4xl md:text-6xl font-black text-white mb-6 tracking-tighter">
+                        Common <span className="text-rcs-blue">Questions</span>
                     </h2>
-                    <p className="text-slate-500 text-lg">
-                        Everything you need to know about modernizing your business messaging.
+                    <p className="text-slate-400 text-base sm:text-lg font-medium">
+                        Everything you need to know about the Prime messaging transition.
                     </p>
                 </div>
 
-                <div className="space-y-4">
+                <div className="space-y-6">
                     {faqs.map((item, index) => {
                         const isOpen = active === index;
 
@@ -55,18 +55,17 @@ export default function FAQ() {
                             <motion.div
                                 key={index}
                                 initial={false}
-                                animate={{ backgroundColor: isOpen ? "rgba(241, 245, 249, 0.5)" : "rgba(255, 255, 255, 0)" }}
-                                className={`rounded-2xl border transition-all duration-300 overflow-hidden ${isOpen ? "border-brandBlue/20 ring-4 ring-brandBlue/5 shadow-sm" : "border-slate-100 hover:border-slate-200"}`}
+                                className={`rounded-[2rem] border transition-all duration-500 overflow-hidden ${isOpen ? "glass-card border-rcs-blue/20 shadow-2xl shadow-rcs-blue/5" : "bg-white/5 border-white/5 hover:border-white/10"}`}
                             >
                                 <button
                                     onClick={() => setActive(isOpen ? null : index)}
-                                    className="w-full flex items-center justify-between gap-6 px-8 py-6 text-left"
+                                    className="w-full flex items-center justify-between gap-4 px-6 sm:px-10 py-6 sm:py-8 text-left"
                                 >
-                                    <span className={`font-bold text-lg transition-colors ${isOpen ? "text-slate-900" : "text-slate-700"}`}>
+                                    <span className={`font-black text-lg sm:text-xl tracking-tight transition-colors ${isOpen ? "text-white" : "text-slate-300"}`}>
                                         {item.q}
                                     </span>
-                                    <span className={`flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center border transition-all duration-300 ${isOpen ? "bg-brandBlue text-white border-transparent rotate-45" : "bg-white text-slate-400 border-slate-200"}`}>
-                                        <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4v16m8-8H4" /></svg>
+                                    <span className={`flex-shrink-0 w-8 h-8 sm:w-10 sm:h-10 rounded-xl sm:rounded-2xl flex items-center justify-center border transition-all duration-500 transform ${isOpen ? "bg-rcs-blue text-white border-transparent rotate-45" : "bg-white/5 text-slate-500 border-white/10"}`}>
+                                        <svg className="w-5 h-5 sm:w-6 sm:h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3}><path d="M12 4v16m8-8H4" /></svg>
                                     </span>
                                 </button>
 
@@ -76,9 +75,9 @@ export default function FAQ() {
                                             initial={{ height: 0, opacity: 0 }}
                                             animate={{ height: "auto", opacity: 1 }}
                                             exit={{ height: 0, opacity: 0 }}
-                                            transition={{ duration: 0.3, ease: "easeInOut" }}
+                                            transition={{ duration: 0.4, ease: [0.25, 1, 0.5, 1] }}
                                         >
-                                            <div className="px-8 pb-8 pt-0 text-slate-600 leading-relaxed">
+                                            <div className="px-6 sm:px-10 pb-6 sm:pb-8 pt-0 text-slate-400 font-medium leading-relaxed text-sm sm:text-base md:text-lg">
                                                 {item.a}
                                             </div>
                                         </motion.div>

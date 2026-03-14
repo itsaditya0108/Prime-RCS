@@ -2,136 +2,128 @@ import { motion } from "framer-motion";
 import brandLogo from "../../assets/logo.png";
 
 const features = [
-    "Reach 2B+ users globally",
-    "Automate support with bots",
-    "Send rich media & catalogs",
-    "Real-time delivery status",
-    "Official Business API integration"
+    "Reach 2B+ users on their favorite app",
+    "Automate with intelligent conversational AI",
+    "Deploy rich media catalogs & payment links",
+    "Reliable Tier-1 connectivity & 24/7 support",
+    "Official Meta Business Solution Provider"
 ];
 
 export default function WhatsAppService() {
     return (
-        <section className="py-24 bg-slate-50 overflow-hidden relative">
+        <section className="py-32 bg-navy-900 overflow-hidden relative">
             <div className="max-w-7xl mx-auto px-6">
-                <div className="grid lg:grid-cols-2 gap-16 items-center">
+                <div className="grid lg:grid-cols-2 gap-24 items-center">
 
-                    {/* Content */}
+                    {/* Left: Content */}
                     <motion.div
-                        initial={{ opacity: 0, x: -20 }}
+                        initial={{ opacity: 0, x: -30 }}
                         whileInView={{ opacity: 1, x: 0 }}
                         viewport={{ once: true }}
+                        transition={{ duration: 0.8 }}
                     >
-                        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-green-100 text-green-600 text-sm font-medium mb-6">
-                            <span className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
-                            Most Popular
-                        </div>
-                        <h2 className="text-4xl md:text-5xl font-display font-bold text-slate-900 mb-6 tracking-tight">
-                            WhatsApp Business API
+                        <span className="inline-flex items-center gap-2 py-2 px-4 rounded-full bg-white/5 border border-white/10 text-emerald-400 text-[10px] font-black tracking-[0.25em] uppercase mb-8 font-heading shadow-inner">
+                            <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse shadow-[0_0_8px_rgba(16,185,129,0.5)]" />
+                            Official API
+                        </span>
+                        
+                        <h2 className="text-4xl md:text-6xl font-black text-white mb-8 tracking-tight leading-tight font-heading">
+                            WhatsApp Business <br />
+                            <span className="text-gradient">Automation.</span>
                         </h2>
-                        <p className="text-lg text-slate-600 mb-8 leading-relaxed">
-                            Connect with customers on their favorite messaging app.
-                            Scale your support, sales, and marketing with the official WhatsApp Business API.
+
+                        <p className="text-xl text-slate-400 mb-12 leading-relaxed font-semibold opacity-90">
+                            The world's most popular messaging app, optimized for your business. 
+                            Build trust and drive engagement at scale.
                         </p>
 
-                        <ul className="space-y-4">
+                        <div className="space-y-4">
                             {features.map((item, i) => (
-                                <motion.li
+                                <motion.div
                                     key={i}
-                                    initial={{ opacity: 0, y: 10 }}
-                                    whileInView={{ opacity: 1, y: 0 }}
+                                    initial={{ opacity: 0, x: -10 }}
+                                    whileInView={{ opacity: 1, x: 0 }}
                                     viewport={{ once: true }}
-                                    transition={{ delay: 0.1 * i }}
-                                    className="flex items-center gap-3 text-slate-700 font-medium group"
+                                    transition={{ delay: i * 0.1 }}
+                                    className="flex items-center gap-4 group"
                                 >
-                                    <div className="w-6 h-6 rounded-full bg-green-100 flex items-center justify-center text-green-600 group-hover:scale-110 transition-transform">
-                                        <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" /></svg>
+                                    <div className="w-6 h-6 rounded-full bg-emerald-500/10 flex items-center justify-center text-emerald-400 group-hover:bg-emerald-500/20 transition-all duration-300 border border-emerald-500/20">
+                                        <svg className="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3}><path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" /></svg>
                                     </div>
-                                    {item}
-                                </motion.li>
+                                    <span className="text-slate-300 font-bold text-lg">{item}</span>
+                                </motion.div>
                             ))}
-                        </ul>
+                        </div>
                     </motion.div>
 
-                    {/* Visual: Phone Mockup */}
+                    {/* Right: Mockup */}
                     <motion.div
-                        initial={{ opacity: 0, x: 20 }}
-                        whileInView={{ opacity: 1, x: 0 }}
+                        initial={{ opacity: 0, x: 30, scale: 0.95 }}
+                        whileInView={{ opacity: 1, x: 0, scale: 1 }}
                         viewport={{ once: true }}
-                        className="relative"
+                        transition={{ duration: 0.8 }}
+                        className="relative flex justify-center lg:justify-end"
                     >
-                        <div className="absolute inset-0 bg-gradient-to-tr from-green-400/20 to-emerald-500/20 blur-[80px] rounded-full pointer-events-none" />
+                        {/* Glow */}
+                        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-emerald-500/10 blur-[120px] rounded-full pointer-events-none" />
 
-                        <div className="relative mx-auto border-gray-800 bg-gray-900 border-[14px] rounded-[2.5rem] h-[600px] w-[300px] shadow-xl flex flex-col overflow-hidden">
-                            <div className="h-[32px] w-[3px] bg-gray-800 absolute -start-[17px] top-[72px] rounded-s-lg"></div>
-                            <div className="h-[46px] w-[3px] bg-gray-800 absolute -start-[17px] top-[124px] rounded-s-lg"></div>
-                            <div className="h-[46px] w-[3px] bg-gray-800 absolute -start-[17px] top-[178px] rounded-s-lg"></div>
-                            <div className="h-[64px] w-[3px] bg-gray-800 absolute -end-[17px] top-[142px] rounded-e-lg"></div>
-                            <div className="rounded-[2rem] overflow-hidden w-full h-full bg-[#E5DDD5] flex flex-col relative">
+                        <div className="relative w-full max-w-[320px] bg-black rounded-[3rem] p-4 border-[10px] border-slate-900 shadow-2xl ring-2 ring-white/5 h-[620px] flex flex-col overflow-hidden">
+                            
+                            {/* WhatsApp Header */}
+                            <div className="bg-[#075E54] pt-12 pb-4 px-5 flex items-center gap-4 border-b border-white/5">
 
-                                {/* Fake Status Bar */}
-                                <div className="h-8 bg-[#075E54] flex items-center justify-between px-6 text-[10px] font-medium text-white/80">
-                                    <span>9:41</span>
-                                    <span>5G</span>
+                                <div className="w-10 h-10 flex items-center justify-center bg-white/10 rounded-xl backdrop-blur-md border border-white/20">
+                                    <img src={brandLogo} className="w-7 h-7 logo-invert" />
                                 </div>
 
-                                {/* Header */}
-                                <div className="bg-[#075E54] p-3 flex items-center gap-3 z-10 shadow-sm text-white sticky top-0">
-                                    <img src={brandLogo} alt="SureMsg Logo" className="w-8 h-8 rounded-full object-contain p-0.5 bg-white shadow-sm" />
-                                    <div className="flex-1">
-                                        <div className="font-display font-bold text-sm flex items-center gap-1.5 tracking-tight">
-                                            SureMsg Support
-                                            <svg className="w-4 h-4 text-white fill-current shadow-sm" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z" /></svg>
-                                        </div>
-                                        <p className="text-[10px] text-white/80 font-medium tracking-wide">Official Business Account</p>
+                                <div>
+                                    <div className="text-[13px] font-black text-white flex items-center gap-1.5 font-heading">
+                                        PrimeRCS
+                                        <span className="text-emerald-400 text-xs shadow-glow-sm">✔</span>
                                     </div>
-                                </div>
-
-                                {/* Chat Body */}
-                                {/* Chat Body */}
-                                <div className="flex-1 p-4 space-y-4 overflow-hidden relative bg-[#E5DDD5]">
-                                    <div className="absolute inset-0 opacity-10 bg-[url('https://i.pinimg.com/originals/97/c0/07/97c00759d90d786d9b6096d274ad3e07.png')] bg-repeat" />
-
-                                    {/* Message 1: User */}
-                                    <div className="flex justify-end z-10 relative">
-                                        <div className="bg-[#DCF8C6] p-2 px-3 rounded-lg shadow-sm max-w-[85%] rounded-tr-none">
-                                            <p className="text-sm text-slate-800">Hi! I'd like to book a demo for the new CRM integration.</p>
-                                            <div className="flex items-center justify-end gap-1 mt-1">
-                                                <span className="text-[10px] text-slate-500">10:30 AM</span>
-                                                <svg className="w-3 h-3 text-blue-500" viewBox="0 0 16 11" fill="none"><path d="M10.95 0.700012L5.85002 5.80001L3.90002 3.85001L2.50002 5.25001L5.85002 8.60001L12.35 2.10001L10.95 0.700012Z" fill="currentColor" /><path d="M15.05 0.700012L9.95002 5.80001L9.20002 5.05001L8.50002 5.75001L9.95002 7.20001L16.45 2.10001L15.05 0.700012Z" fill="currentColor" /><path d="M1.4 5.25L4.75 8.6L3.35 10L0 6.65L1.4 5.25Z" fill="currentColor" /></svg>
-                                            </div>
-                                        </div>
+                                    <div className="text-[9px] text-emerald-400/80 font-black uppercase tracking-[0.2em]">
+                                        Verified Business
                                     </div>
-
-                                    {/* Message 2: Business */}
-                                    <div className="flex justify-start z-10 relative">
-                                        <div className="bg-white p-2 px-3 rounded-lg shadow-sm max-w-[85%] rounded-tl-none border border-slate-100">
-                                            <p className="text-sm text-slate-800">Great! We have these slots available for you:</p>
-                                            <span className="text-[10px] text-slate-400 block text-right mt-1">10:30 AM</span>
-                                        </div>
-                                    </div>
-
-                                    {/* Interactive Buttons */}
-                                    <div className="z-10 relative pl-2 space-y-2 max-w-[85%]">
-                                        <button className="w-full bg-white hover:bg-slate-50 py-2.5 px-4 rounded-lg shadow-sm text-brandBlue text-sm font-semibold border border-slate-200 transition-colors flex items-center justify-center gap-2">
-                                            <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" /></svg>
-                                            Monday, 10:00 AM
-                                        </button>
-                                        <button className="w-full bg-white hover:bg-slate-50 py-2.5 px-4 rounded-lg shadow-sm text-brandBlue text-sm font-semibold border border-slate-200 transition-colors flex items-center justify-center gap-2">
-                                            <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" /></svg>
-                                            Tuesday, 2:00 PM
-                                        </button>
-                                    </div>
-
-                                </div>
-
-                                {/* Footer Input */}
-                                <div className="p-3 bg-white border-t border-slate-100 flex items-center gap-2">
-                                    <div className="w-6 h-6 rounded-full text-slate-400 flex items-center justify-center">+</div>
-                                    <div className="flex-1 h-8 rounded-full bg-slate-100 text-xs text-slate-400 flex items-center px-3">Type a message...</div>
                                 </div>
 
                             </div>
+
+                            {/* Chat Body */}
+                            <div className="flex-1 bg-[#0b141a] p-5 space-y-4 overflow-hidden relative">
+                                <div className="absolute inset-0 opacity-[0.03] grayscale bg-[url('https://i.pinimg.com/originals/97/c0/07/97c00759d90d786d9b6096d274ad3e07.png')] bg-repeat" />
+
+                                <div className="flex justify-start relative z-10">
+                                    <div className="bg-[#202c33] p-3 px-4 rounded-xl rounded-tl-none border border-white/5 max-w-[85%]">
+                                        <p className="text-xs text-slate-300 leading-relaxed">Hello! 👋 How can we help you scale your messaging today?</p>
+                                    </div>
+                                </div>
+
+                                <div className="flex justify-end relative z-10">
+                                    <div className="bg-[#005c4b] p-3 px-4 rounded-xl rounded-tr-none border border-white/5 max-w-[85%]">
+                                        <p className="text-xs text-white leading-relaxed">I'd like to integrate WhatsApp into my CRM.</p>
+                                    </div>
+                                </div>
+
+                                <div className="flex flex-col gap-2 relative z-10 pl-2">
+                                    {['View API Docs', 'Schedule Demo', 'Pricing'].map(action => (
+                                        <button key={action} className="bg-[#202c33] border border-white/5 p-3 rounded-xl text-rcs-cyan text-[10px] font-black uppercase tracking-[0.2em] hover:bg-[#2a3942] transition-all hover:scale-[1.02] active:scale-[0.98] font-heading">
+                                            {action}
+                                        </button>
+                                    ))}
+                                </div>
+                            </div>
+
+                            {/* Footer */}
+                            <div className="p-4 bg-[#202c33] flex items-center gap-3">
+                                <div className="flex-1 h-9 rounded-full bg-[#2a3942] border border-white/5 flex items-center px-4 overflow-hidden">
+                                     <div className="w-full h-1 bg-white/10 rounded-full" />
+                                </div>
+                                <div className="w-9 h-9 rounded-full bg-[#00a884] flex items-center justify-center text-white shadow-lg">
+                                    <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z" /></svg>
+                                </div>
+                            </div>
                         </div>
+
                     </motion.div>
                 </div>
             </div>

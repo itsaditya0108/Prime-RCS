@@ -6,6 +6,7 @@ import OtherServices from "../sections/OtherServices";
 import FAQ from "../sections/FAQ";
 import CTA from "../sections/CTA";
 import Features from "../sections/Features";
+import PlatformShowcase from "../sections/PlatformShowcase";
 
 export default function Home() {
     return (
@@ -14,9 +15,8 @@ export default function Home() {
             {/* <TrustedBy /> */}
             <WhyRCS />
             <Features />
-            {/* <UseCases />        // (optional, can merge with Features) */}
+            <PlatformShowcase />
             <OtherServices />
-            <FAQ />
             <CTA />
         </PageTransition>
     );

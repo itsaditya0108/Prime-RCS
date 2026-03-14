@@ -2,29 +2,30 @@ import { motion } from "framer-motion";
 
 export default function ContactHero() {
     return (
-        <section className="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden bg-slate-50">
-            <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-20 mix-blend-overlay pointer-events-none"></div>
-
-            {/* Glows */}
-            <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-brandBlue/10 rounded-full blur-[100px] -translate-y-1/2 translate-x-1/2 pointer-events-none" />
+        <section className="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden bg-navy-950">
+            {/* Ambient background */}
+            <div className="absolute inset-0 pointer-events-none">
+                <div className="absolute top-[-20%] left-[-10%] w-[800px] h-[800px] bg-rcs-blue/10 blur-[150px] rounded-full" />
+                <div className="absolute bottom-[-20%] right-[-10%] w-[800px] h-[800px] bg-vibrant-purple/10 blur-[150px] rounded-full" />
+            </div>
 
             <div className="max-w-4xl mx-auto px-6 text-center relative z-10">
                 <motion.div
-                    initial={{ opacity: 0, y: 20 }}
+                    initial={{ opacity: 0, y: 30 }}
                     animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.6 }}
+                    transition={{ duration: 0.8 }}
                 >
-                    <span className="inline-block py-1 px-3 rounded-full bg-brandGreen/10 text-brandGreen text-xs font-bold tracking-wide uppercase mb-6">
-                        Contact Us
+                    <span className="inline-flex items-center gap-2 py-2 px-4 rounded-full bg-white/5 border border-white/10 text-rcs-cyan text-[10px] font-extrabold tracking-[0.25em] uppercase mb-8">
+                        <span className="w-1.5 h-1.5 rounded-full bg-rcs-cyan animate-pulse" />
+                        Get in Touch
                     </span>
-                    <h1 className="text-5xl md:text-7xl font-display font-bold text-slate-900 mb-8 tracking-tight leading-tight">
-                        Let’s start a <br />
-                        <span className="bg-clip-text text-transparent bg-gradient-to-r from-brandBlue to-brandGreen">
-                            conversation.
-                        </span>
+                    <h1 className="text-5xl md:text-8xl font-extrabold text-white mb-8 tracking-tighter leading-[0.9]">
+                        Start the <br />
+                        <span className="text-gradient text-glow-lg">Conversation.</span>
                     </h1>
-                    <p className="text-xl text-slate-500 leading-relaxed max-w-2xl mx-auto">
-                        Ready to transform your business messaging? Our team is here to help you find the perfect solution.
+                    <p className="text-xl md:text-2xl text-slate-400 leading-relaxed max-w-2xl mx-auto font-medium">
+                        Ready to elevate your customer experience? 
+                        Our team is here to engineer the perfect messaging strategy for you.
                     </p>
                 </motion.div>
             </div>
