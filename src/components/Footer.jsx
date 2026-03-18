@@ -97,7 +97,7 @@ export default function Footer() {
 
                 {/* Bottom Bar */}
                 <div className="border-t border-slate-800 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-slate-500 font-bold uppercase tracking-widest">
-                    <p>© {new Date().getFullYear()} PrimeRCS. All rights reserved.</p>
+                    <p>© {new Date().getFullYear()} PrimeRCS. All rights reserved. Prime MSG</p>
                     <div className="flex gap-6">
                         <Link to="/privacy" className="hover:text-rcs-cyan transition-colors">Privacy Policy</Link>
                         <Link to="/terms" className="hover:text-rcs-cyan transition-colors">Terms of Service</Link>

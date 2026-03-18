@@ -33,7 +33,7 @@ const services = [
 
 export default function OtherServices() {
     return (
-        <section className="py-32 bg-navy-900 border-t border-white/5 relative">
+        <section className="py-20 lg:py-32 bg-navy-900 border-t border-white/5 relative">
             <div className="max-w-7xl mx-auto px-6">
 
                 <div className="grid lg:grid-cols-12 gap-16 items-start">

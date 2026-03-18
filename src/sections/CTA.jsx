@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 
 export default function CTA() {
     return (
-        <section className="py-24 relative overflow-hidden bg-navy-900">
+        <section className="py-16 lg:py-24 relative overflow-hidden bg-navy-900">
             {/* Ambient Background Effects */}
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-rcs-blue/10 blur-[120px] rounded-full pointer-events-none" />
 

@@ -39,7 +39,7 @@ export default function HomeHero() {
     }, []);
 
     return (
-        <section className="relative min-h-[90vh] flex items-center overflow-hidden bg-aurora pt-24 pb-20">
+        <section className="relative min-h-[85vh] flex items-center overflow-hidden bg-aurora pt-24 pb-12 lg:pt-32 lg:pb-20">
 
             {/* Background Glow */}
             <div className="absolute inset-0 pointer-events-none">
@@ -68,9 +68,9 @@ export default function HomeHero() {
                         initial={{ opacity: 0, y: 40 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 1, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
-                        className="text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-black leading-[1.05] tracking-tight mb-8 font-heading"
+                        className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-black leading-[1.1] tracking-tight mb-6 sm:mb-8 font-heading"
                     >
-                        The Future of <br />
+                        The Future of <br className="hidden sm:block" />
                         <span className="text-gradient text-glow-lg py-2">
                             Messaging is RCS
                         </span>
@@ -80,7 +80,7 @@ export default function HomeHero() {
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.8, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
-                        className="text-lg md:text-xl lg:text-2xl text-slate-400 mb-10 max-w-2xl mx-auto lg:mx-0 leading-relaxed font-semibold opacity-90"
+                        className="text-base sm:text-lg md:text-xl lg:text-2xl text-slate-400 mb-8 sm:mb-10 max-w-2xl mx-auto lg:mx-0 leading-relaxed font-semibold opacity-90"
                     >
                         Deliver rich, verified and interactive experiences with PrimeRCS.
                         Increase engagement and drive conversions using next-generation
@@ -127,27 +127,39 @@ export default function HomeHero() {
 
                 </div>
 
-                {/* PHONE MOCKUP */}
                 <motion.div
                     initial={{ opacity: 0, scale: 0.9, y: 30 }}
                     animate={{ opacity: 1, scale: 1, y: 0 }}
                     transition={{ duration: 0.8, delay: 0.2 }}
-                    className="flex justify-center lg:justify-end"
+                    className="hidden lg:flex justify-end"
                 >
 
-                    <div className="w-[260px] sm:w-[290px] lg:w-[320px] relative group animate-float">
+                    <div className="w-[280px] sm:w-[310px] lg:w-[340px] relative group animate-float">
 
                         {/* Ambient glow */}
                         <div className="absolute -inset-16 bg-rcs-blue/15 blur-[90px] opacity-60" />
 
                         {/* Phone body */}
-                        <div className="relative bg-black rounded-[2.8rem] p-[8px] shadow-[0_40px_100px_-20px_rgba(0,0,0,0.9)]">
+                        <div className="relative bg-[#0F1115] rounded-[3rem] p-[10px] shadow-[0_40px_100px_-20px_rgba(0,0,0,0.9)] border-[1px] border-white/10">
+
+                            {/* Bezels/Frame details */}
+                            <div className="absolute inset-0 rounded-[3rem] border-[3px] border-white/5 pointer-events-none" />
+                            
+                            {/* Buttons */}
+                            <div className="absolute -left-[2px] top-24 w-[3px] h-12 bg-gradient-to-b from-white/20 to-transparent rounded-l-md" />
+                            <div className="absolute -left-[2px] top-40 w-[3px] h-12 bg-gradient-to-b from-white/20 to-transparent rounded-l-md" />
+                            <div className="absolute -right-[2px] top-32 w-[3px] h-20 bg-gradient-to-b from-white/20 to-transparent rounded-r-md" />
 
                             {/* Screen */}
                             <div className="relative rounded-[2.4rem] overflow-hidden bg-navy-950">
 
-                                {/* Dynamic island */}
-                                <div className="absolute top-2 left-1/2 -translate-x-1/2 w-20 h-5 bg-black rounded-full z-20" />
+                                    {/* Glass reflection */}
+                                    <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/[0.03] to-white/[0.08] pointer-events-none z-30" />
+
+                                    {/* Dynamic island */}
+                                    <div className="absolute top-3 left-1/2 -translate-x-1/2 w-24 h-6 bg-black rounded-full z-40 flex items-center justify-end px-3">
+                                        <div className="w-1.5 h-1.5 rounded-full bg-blue-500/20 blur-[1px]" />
+                                    </div>
 
                                 {/* Header */}
                                 <div className="bg-navy-900 pt-10 pb-4 px-4 flex items-center gap-3 border-b border-white/5">
@@ -170,9 +182,9 @@ export default function HomeHero() {
                                 </div>
 
                                 {/* Chat area */}
-                                <div className="p-4 space-y-5">
+                                <div className="p-4 space-y-6">
 
-                                    <div className="bg-navy-900/60 p-3 rounded-xl text-xs text-slate-300">
+                                    <div className="bg-navy-900/60 p-4 rounded-xl text-xs text-slate-300 leading-relaxed">
                                         Explore next-gen messaging with PrimeRCS 🚀
                                     </div>
 
@@ -196,17 +208,17 @@ export default function HomeHero() {
                                                         className="h-32 w-full object-cover"
                                                     />
 
-                                                    <div className="p-3">
+                                                    <div className="p-4">
 
-                                                        <h4 className="font-semibold text-white text-sm mb-1">
+                                                        <h4 className="font-bold text-white text-sm mb-1.5">
                                                             {card.title}
                                                         </h4>
 
-                                                        <p className="text-[11px] text-slate-400 mb-3">
+                                                        <p className="text-[11px] text-slate-400 mb-4 leading-normal">
                                                             {card.subtitle}
                                                         </p>
 
-                                                        <button className="btn-primary w-full text-[11px] py-2">
+                                                        <button className="btn-primary w-full text-[11px] py-2.5">
                                                             {card.action}
                                                         </button>
 

@@ -72,10 +72,11 @@ export default function Navbar() {
 
     return (
         <nav
-            className={`fixed top-0 w-full z-[100] transition-all duration-500 ${scrolled
-                ? "bg-navy-900/95 backdrop-blur-2xl border-b border-white/10 shadow-[0_10px_40px_-15px_rgba(0,0,0,0.5)] py-3"
-                : "bg-transparent py-5"
+            className={`fixed top-0 w-full transition-all duration-500 ${scrolled || mobileOpen
+                ? "bg-navy-950/80 backdrop-blur-xl border-b border-white/5 shadow-[0_10px_40px_-15px_rgba(0,0,0,0.3)] py-4"
+                : "bg-transparent py-6"
                 }`}
+            style={{ zIndex: 99999 }}
             onMouseLeave={() => setActiveMenu(null)}
         >
             <div className="max-w-[1400px] mx-auto flex items-center justify-between h-16 sm:h-20 px-6">
@@ -126,22 +127,22 @@ export default function Navbar() {
                         </Link>
                     </div>
 
-                    {/* Mobile Toggle */}
                     <button
                         onClick={() => setMobileOpen(!mobileOpen)}
-                        className="md:hidden p-2 z-[110] relative"
+                        className="md:hidden p-3 -mr-2 z-[100001] relative transition-transform active:scale-90"
+                        aria-label={mobileOpen ? "Close menu" : "Open menu"}
                     >
                         <div className="w-6 h-5 flex flex-col justify-between">
                             <span
-                                className={`h-[2px] bg-white transition ${mobileOpen ? "rotate-45 translate-y-2" : ""
+                                className={`h-[2px] transition-all duration-300 ${mobileOpen ? "rotate-45 translate-y-[9px] bg-rcs-cyan" : "bg-white"
                                     }`}
                             />
                             <span
-                                className={`h-[2px] bg-white transition ${mobileOpen ? "opacity-0" : ""
+                                className={`h-[2px] transition-all duration-300 ${mobileOpen ? "opacity-0" : "bg-white"
                                     }`}
                             />
                             <span
-                                className={`h-[2px] bg-white transition ${mobileOpen ? "-rotate-45 -translate-y-2" : ""
+                                className={`h-[2px] transition-all duration-300 ${mobileOpen ? "-rotate-45 -translate-y-[9px] bg-rcs-cyan" : "bg-white"
                                     }`}
                             />
                         </div>
@@ -189,7 +190,7 @@ export default function Navbar() {
                                             to={sub.to}
                                             className="group flex gap-5 p-5 rounded-2xl hover:bg-white/5 border border-transparent hover:border-white/10 transition-all duration-300"
                                         >
-                                            <div className="w-12 h-12 rounded-2xl bg-white/5 text-rcs-blue flex items-center justify-center group-hover:bg-rcs-blue group-hover:text-white transition-all duration-500 shadow-inner border border-white/5">
+                                            <div className="w-20 h-12 rounded-2xl bg-white/5 text-rcs-blue flex items-center justify-center group-hover:bg-rcs-blue group-hover:text-white transition-all duration-500 shadow-inner border border-white/5">
                                                 <ItemIcon name={sub.icon} />
                                             </div>
 
@@ -216,7 +217,8 @@ export default function Navbar() {
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
                         exit={{ opacity: 0 }}
-                        className="fixed inset-0 bg-navy-950 md:hidden z-[100] flex flex-col"
+                        className="fixed inset-0 md:hidden flex flex-col pt-24"
+                        style={{ backgroundColor: '#020617', zIndex: 100000, opacity: 1 }}
                     >
                         {/* Decorative background glow */}
                         <div className="absolute top-0 left-0 w-full h-[50%] bg-gradient-to-b from-rcs-blue/20 to-transparent pointer-events-none" />
@@ -226,7 +228,7 @@ export default function Navbar() {
                             animate={{ x: 0 }}
                             exit={{ x: "100%" }}
                             transition={{ type: "spring", damping: 30, stiffness: 250 }}
-                            className="relative w-full h-full bg-navy-950 p-8 pt-24 overflow-y-auto"
+                            className="relative w-full h-full bg-navy-950 p-8 pt-12 overflow-y-auto border-l border-white/5 shadow-2xl"
                             onClick={(e) => e.stopPropagation()}
                         >
                             <div className="flex flex-col gap-8">
@@ -244,13 +246,13 @@ export default function Navbar() {
 
                             <div className="mt-12 space-y-6">
                                 <Link to="/contact" onClick={() => setMobileOpen(false)}>
-                                    <button 
+                                    <button
                                         className="btn-primary w-full !py-4 shadow-rcs-blue/20 text-base font-black font-heading rounded-xl"
                                     >
                                         Get Started
                                     </button>
                                 </Link>
-                                
+
                                 <div className="flex justify-center gap-8 text-[11px] font-bold text-slate-500 uppercase tracking-widest mt-10">
                                     <Link to="/contact" onClick={() => setMobileOpen(false)}>Support</Link>
                                     <Link to="/about" onClick={() => setMobileOpen(false)}>About</Link>
@@ -337,7 +339,7 @@ const MobileMenuItem = ({ item, setOpen }) => {
 
             <AnimatePresence>
                 {expanded && (
-                    <motion.div 
+                    <motion.div
                         initial={{ height: 0, opacity: 0 }}
                         animate={{ height: "auto", opacity: 1 }}
                         exit={{ height: 0, opacity: 0 }}
