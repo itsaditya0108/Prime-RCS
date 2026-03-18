@@ -72,10 +72,13 @@ export default function Navbar() {
 
     return (
         <nav
-            className={`fixed top-0 w-full transition-all duration-500 ${scrolled || mobileOpen
-                ? "bg-navy-950/80 backdrop-blur-xl border-b border-white/5 shadow-[0_10px_40px_-15px_rgba(0,0,0,0.3)] py-4"
-                : "bg-transparent py-6"
-                }`}
+            className={`fixed top-0 w-full transition-all duration-500 ${
+                mobileOpen
+                    ? "bg-navy-950 py-4 border-b border-white/5"
+                    : scrolled
+                        ? "bg-navy-950/80 backdrop-blur-xl border-b border-white/5 shadow-[0_10px_40px_-15px_rgba(0,0,0,0.3)] py-4"
+                        : "bg-transparent py-6"
+            }`}
             style={{ zIndex: 99999 }}
             onMouseLeave={() => setActiveMenu(null)}
         >
@@ -217,9 +220,7 @@ export default function Navbar() {
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
                         exit={{ opacity: 0 }}
-                        className="fixed inset-0 md:hidden flex flex-col pt-24"
-                        style={{ backgroundColor: '#020617', zIndex: 100000, opacity: 1 }}
-                    >
+                        style={{ backgroundColor: '#020617', zIndex: 100000 }}
                         {/* Decorative background glow */}
                         <div className="absolute top-0 left-0 w-full h-[50%] bg-gradient-to-b from-rcs-blue/20 to-transparent pointer-events-none" />
 
