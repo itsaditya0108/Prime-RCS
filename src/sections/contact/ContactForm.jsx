@@ -68,7 +68,7 @@ export default function ContactForm() {
                             Global Operations
                         </h2>
                         <p className="text-xl text-slate-400 mb-16 leading-relaxed font-medium">
-                            Whether you're looking for high-volume SMS termination or 
+                            Whether you're looking for high-volume SMS termination or
                             next-gen RCS interactive flows, our engineers are standing by.
                         </p>
 
@@ -76,21 +76,15 @@ export default function ContactForm() {
                             {[
                                 {
                                     title: "Expert Consultation",
-                                    info: "info@primercs.in",
+                                    info: "info@primemsg.in",
                                     icon: <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" /></svg>,
                                     color: "text-rcs-blue"
                                 },
                                 {
                                     title: "Developer Support",
-                                    info: "dev@primercs.in",
+                                    info: "info@primemsg.in",
                                     icon: <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" /></svg>,
                                     color: "text-rcs-cyan"
-                                },
-                                {
-                                    title: "Mission Control",
-                                    info: "No. 42, Shanthi Road, Bengaluru, Karnataka 560027",
-                                    icon: <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" /><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" /></svg>,
-                                    color: "text-vibrant-purple"
                                 }
                             ].map((item, i) => (
                                 <div key={i} className="flex items-start gap-6 group">
@@ -151,11 +145,11 @@ export default function ContactForm() {
                                         required
                                         className="w-full bg-white/5 border border-white/10 rounded-2xl px-6 py-4 text-white focus:border-rcs-blue focus:ring-1 focus:ring-rcs-blue transition-all outline-none font-medium appearance-none"
                                     >
-                                        <option value="" disabled className="bg-navy-950">Select Channel...</option>
-                                        <option value="rcs" className="bg-navy-950">RCS Messaging</option>
-                                        <option value="whatsapp" className="bg-navy-950">WhatsApp API</option>
-                                        <option value="sms" className="bg-navy-950">Strategic SMS</option>
-                                        <option value="other" className="bg-navy-950">Other / Custom</option>
+                                        <option value="" disabled className="text-slate-900 bg-white">Select Channel...</option>
+                                        <option value="rcs" className="text-slate-900 bg-white">RCS Messaging</option>
+                                        <option value="whatsapp" className="text-slate-900 bg-white">WhatsApp API</option>
+                                        <option value="sms" className="text-slate-900 bg-white">Strategic SMS</option>
+                                        <option value="other" className="text-slate-900 bg-white">Other / Custom</option>
                                     </select>
                                 </div>
 
